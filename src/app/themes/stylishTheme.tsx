@@ -4,8 +4,9 @@ import React, { useContext } from 'react'
 import { Button } from '@/components/ui/button'
 import { X } from 'lucide-react'
 import { CoverContext } from '../components/coverContext'
+import { getIconifyHost } from '../config/unsplash'
 
-const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
+const iconifyHost = getIconifyHost()
 
 const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
   const { title, author, icon, font, customIcon, theme, pattern } = config

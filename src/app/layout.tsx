@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import Script from 'next/script'
+// import Script from 'next/script'
 import './globals.css'
 import './assets/css/patterns.css'
 import { CoverProvider } from './components/coverContext'
@@ -30,16 +30,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+      <head>
+        {/* 运行时环境变量注入占位符，Docker 启动时替换 */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'window.__UNSPLASH_KEY="__UNSPLASH_KEY_PLACEHOLDER__";window.__ICONIFY_URL="__ICONIFY_URL_PLACEHOLDER__"'
+          }}
+        />
+      </head>
       <body className={`antialiased`}>
         <CoverProvider>{children}</CoverProvider>
         {/* cloudflare analytics，不用请注释 */}
-        {process.env.NODE_ENV === 'production' && (
+        {/* {process.env.NODE_ENV === 'production' && (
           <Script
             defer
             src='https://static.cloudflareinsights.com/beacon.min.js'
             data-cf-beacon={`{"token": "${process.env.NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN}"}`}
           />
-        )}
+        )} */}
       </body>
     </html>
   )

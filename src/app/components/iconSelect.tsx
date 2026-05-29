@@ -9,9 +9,10 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 
 import { CoverContext } from './coverContext'
 import { throttle } from '../tools/utils'
+import { getIconifyHost } from '../config/unsplash'
 
 // 设置Iconify API的URL
-const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
+const iconifyHost = getIconifyHost()
 
 // 自定义label显示
 const FormatOptionLabel = ({ icon }: { icon: IconOption }) => {

@@ -5,8 +5,9 @@ import { Button } from '@/components/ui/button'
 import { X } from 'lucide-react'
 import { CoverContext } from '../components/coverContext'
 import { getBackgroundStyle, hasBackgroundImage, shouldShowPattern } from '../tools/backgroundUtils'
+import { getIconifyHost } from '../config/unsplash'
 
-const iconifyHost = process.env.NEXT_PUBLIC_API_ICONIFY_URL
+const iconifyHost = getIconifyHost()
 
 const BackgroundTheme: React.FC<ThemeProps> = ({ config }) => {
   const { title, author, icon, font, customIcon, pattern } = config

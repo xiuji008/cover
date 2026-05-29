@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Button } from '@/components/ui/button'
 import { Search } from 'lucide-react'
-import unsplash from '../config/unsplash'
+import { getUnsplash } from '../config/unsplash'
 import { CoverContext } from './coverContext'
 import UnsplashImage from './unsplashImage'
 
@@ -48,7 +48,7 @@ const UnsplashSearch: React.FC<UnsplashSearchProps> = ({ largeImgPreview, onImag
     if (unsplashParam.query === '') {
       return
     }
-    unsplash.search.getPhotos(unsplashParam).then((resp) => {
+    getUnsplash().search.getPhotos(unsplashParam).then((resp) => {
       if (resp.response?.results) {
         setImageList(resp.response.results as UnsplashImageResp[])
       } else {

@@ -9,7 +9,7 @@ import { getIconifyHost } from '../config/unsplash'
 const iconifyHost = getIconifyHost()
 
 const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
-  const { title, author, icon, font, customIcon, theme, pattern } = config
+  const { title, author, icon, font, customIcon, theme, pattern, titleColor, titleSize, titleWrap, authorColor, authorSize } = config
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
 
   // 获取右侧背景样式
@@ -48,10 +48,18 @@ const StylishTheme: React.FC<ThemeProps> = ({ config }) => {
   return (
     <div className='w-full h-full overflow-y-hidden flex' style={{ backgroundColor: coverSetting.bg.color }}>
       <div className={`w-1/2 h-full p-12 ${font.value} ${theme.swapX ? 'order-1 pr-14' : 'pl-14'} flex flex-col justify-center gap-6 bg-white text-gray-800`}>
-        <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold`}>{title}</div>
+        <div
+          className={`${font?.lineHeight || 'leading-14'} font-bold`}
+          style={{ fontSize: (titleSize ?? 48) + 'px', color: titleColor || undefined, whiteSpace: (titleWrap ?? true) ? 'pre-wrap' : 'nowrap', wordBreak: 'break-word' }}>
+          {title}
+        </div>
         <div className='flex items-center gap-4'>
           <img className='w-8 h-8' src={customIcon || `${iconifyHost}/${icon.value}.svg`} alt={`${icon.label} icon`} />
-          <div className={`text-2xl font-semibold ${author.trim() === '' && 'hidden'}`}>{author}</div>
+          <div
+            className={`font-semibold ${author.trim() === '' && 'hidden'}`}
+            style={{ fontSize: (authorSize ?? 24) + 'px', color: authorColor || undefined }}>
+            {author}
+          </div>
         </div>
       </div>
       <div className='w-1/2 h-full relative' style={rightBackgroundStyle}>

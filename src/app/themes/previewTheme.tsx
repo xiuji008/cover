@@ -9,7 +9,7 @@ import { CoverContext } from '../components/coverContext'
 import { getBackgroundStyle, shouldShowPattern } from '../tools/backgroundUtils'
 
 const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
-  const { title, pattern, author, font, size, theme } = config
+  const { title, pattern, author, font, size, theme, titleColor, titleSize, titleWrap, authorColor, authorSize } = config
   const { coverSetting } = useContext(CoverContext)
   const [image, setImage] = useState<string | undefined>(undefined)
 
@@ -23,8 +23,16 @@ const PreviewTheme: React.FC<ThemeProps> = ({ config }) => {
         className={`${font.value} h-full flex flex-col items-center ${
           size.value.indexOf('vertical') >= 0 ? 'justify-center' : ''
         } relative z-10 p-16 text-center`}>
-        <div className={`text-2xl mb-2 font-semibold text-white text-shadow-sm text-shadow-black ${author.trim() === '' && 'hidden'}`}>{author}</div>
-        <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-white text-shadow-lg text-shadow-black`}>{title}</div>
+        <div
+          className={`mb-2 font-semibold text-white text-shadow-sm text-shadow-black ${author.trim() === '' && 'hidden'}`}
+          style={{ fontSize: (authorSize ?? 24) + 'px', color: authorColor || undefined }}>
+          {author}
+        </div>
+        <div
+          className={`${font?.lineHeight || 'leading-14'} font-bold text-white text-shadow-lg text-shadow-black`}
+          style={{ fontSize: (titleSize ?? 48) + 'px', color: titleColor || undefined, whiteSpace: (titleWrap ?? true) ? 'pre-wrap' : 'nowrap', wordBreak: 'break-word' }}>
+          {title}
+        </div>
 
         <div className='w-full aspect-[1.5382] group flex flex-col relative'>
           <img src={pcBg.src} className='absolute top-0 left-0 w-full z-10' alt='background' />

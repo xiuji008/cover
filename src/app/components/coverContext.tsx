@@ -18,7 +18,7 @@ const CoverProvider: React.FC<{ children: React.ReactNode }> = ({ children }) =>
   const [unsplashParam, setUnsplashParam] = useState(DEFAULT_UNSPLASH_PARAM)
   const [selectedGradientColorKey, setSelectedGradientColorKey] = useState('red')
 
-  const applyTemplate = (templateData: Setting) => {
+  const applyTemplate = (templateData: Partial<Setting>) => {
     setCoverSetting({ ...DEFAULT_SETTING, ...templateData })
     localStorage.setItem('coverSetting', JSON.stringify({ ...DEFAULT_SETTING, ...templateData }))
   }

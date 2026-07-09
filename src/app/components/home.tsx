@@ -18,7 +18,7 @@ export default function Main() {
   const router = useRouter()
   const { applyTemplate } = useContext(CoverContext)
 
-  const handleUseTemplate = (templateData: Setting) => {
+  const handleUseTemplate = (templateData: Partial<Setting>) => {
     applyTemplate(templateData)
     router.push('/editor')
   }
@@ -38,7 +38,7 @@ export default function Main() {
         </Link>
         <div className='w-full max-w-360 flex flex-wrap justify-around px-4'>
           <div className='w-full md:w-1/4 h-fit transform duration-300 border hover:scale-110 hover:-rotate-3 rotate-6 bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col'>
-            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={HomeCovers[0].preview} width={800} height={450} alt='ThisCover-1' />
+            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={HomeCovers[0].preview} width={800} height={450} alt='ThisCover-1' referrerPolicy='no-referrer' />
             <p className='w-full animate animate-pulse bg-gray-100 h-6 rounded mb-2'></p>
             <div className='flex justify-between gap-2'>
               <p className='w-2/3 animate animate-pulse bg-gray-100 h-6 rounded'></p>
@@ -53,7 +53,7 @@ export default function Main() {
             </div>
           </div>
           <div className='w-full md:w-1/3 h-fit transform md:translate-y-4 hover:scale-110 duration-300 border bg-white p-4 shadow-lg shadow-gray-50 rounded-lg flex flex-col'>
-            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={HomeCovers[1].preview} width={800} height={450} alt='ThisCover-2' />
+            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={HomeCovers[1].preview} width={800} height={450} alt='ThisCover-2' referrerPolicy='no-referrer' />
             <p className='animate animate-pulse bg-gray-100 h-6 rounded mb-2'></p>
             <div className='flex justify-end gap-2'>
               <p className='w-1/3 animate animate-pulse bg-gray-100 h-6 rounded'></p>
@@ -68,7 +68,7 @@ export default function Main() {
             </div>
           </div>
           <div className='w-full md:w-1/4 h-fit transform md:-translate-y-8 duration-300 hover:scale-110 hover:rotate-3 border -rotate-6 bg-white p-2 shadow-lg shadow-gray-50 rounded-lg flex flex-col '>
-            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={HomeCovers[2].preview} width={600} height={600} alt='ThisCover-2' />
+            <Image className='w-full h-auto border border-gray-100 rounded mb-2' src={HomeCovers[2].preview} width={600} height={600} alt='ThisCover-2' referrerPolicy='no-referrer' />
             <p className='animate animate-pulse w-1/2 bg-gray-100 h-6 rounded mb-2'></p>
             <div className='flex justify-between'>
               <p className='w-1/2 animate animate-pulse bg-gray-100 h-6 rounded'></p>
@@ -213,12 +213,13 @@ export default function Main() {
             <div key={example.id} className='break-inside-avoid mb-4'>
               <div className='w-full h-fit border bg-white p-3 shadow-lg shadow-gray-50 rounded-xl flex flex-col overflow-hidden hover:shadow-xl transition-shadow duration-300'>
                 <div className='relative mb-3'>
-                  <Image 
-                    className={`w-full aspect-[${example.ratio}] border border-gray-100 rounded-md`} 
+                  <Image
+                    className={`w-full aspect-[${example.ratio}] border border-gray-100 rounded-md`}
                     src={example.preview}
                     width={400}
                     height={400}
                     alt={example.name}
+                    referrerPolicy='no-referrer'
                   />
                 </div>
                 <div className='flex items-center justify-between'>

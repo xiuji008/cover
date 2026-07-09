@@ -1,8 +1,17 @@
+import ex1 from '../assets/templates/thiscover_example_1_2c9d37d69e1800f6.webp'
+import ex2 from '../assets/templates/thiscover_example_4_8e2644481e476e28.webp'
+import ex3 from '../assets/templates/thiscover_example_2_1c118ab0f9fc93e0.webp'
+import ex4 from '../assets/templates/thiscover_example_3_f41f7c9eb1e527a8.webp'
+import ex5 from '../assets/templates/thiscover_example_5_1e1feb39361e31ca.webp'
+import ex6 from '../assets/templates/thiscover_example_6_92b78a7283d015eb.webp'
+import ex7 from '../assets/templates/thiscover_example_7_fdbfc2f7903cbd18.webp'
+import ex8 from '../assets/templates/thiscover_example_8_db9eec43bc97cbd4.webp'
+
 export const Examples = [
   {
     id: '1',
     name: '手机主题封面',
-    preview: 'https://p.weizwz.com/cover/thiscover_example_1_2c9d37d69e1800f6.webp',
+    preview: ex1.src,
     ratio: '9/16',
     mark: '手机主题：使用吸色器取手机截图中的颜色',
     data: {
@@ -36,7 +45,7 @@ export const Examples = [
   {
     id: '2',
     name: '小红书主题封面',
-    preview: 'https://p.weizwz.com/cover/thiscover_example_4_8e2644481e476e28.webp',
+    preview: ex2.src,
     ratio: '1',
     mark: '简洁主题：选择不同纹理&背景色',
     data: {
@@ -67,7 +76,7 @@ export const Examples = [
   {
     id: '3',
     name: '我的博客日常记录',
-    preview: 'https://p.weizwz.com/cover/thiscover_example_2_1c118ab0f9fc93e0.webp',
+    preview: ex3.src,
     ratio: '16/9',
     mark: '背景主题：使用在线背景图片',
     data: {
@@ -103,7 +112,7 @@ export const Examples = [
   {
     id: '4',
     name: '我听见了海浪的呼唤',
-    preview: 'https://p.weizwz.com/cover/thiscover_example_3_f41f7c9eb1e527a8.webp',
+    preview: ex4.src,
     ratio: '4/3',
     mark: '图文主题：左右位置可兑换',
     data: {
@@ -141,7 +150,7 @@ export const Examples = [
   {
     id: '5',
     name: '桌面主题预览',
-    preview: 'https://p.weizwz.com/cover/thiscover_example_5_1e1feb39361e31ca.webp',
+    preview: ex5.src,
     ratio: '4/3',
     mark: '桌面主题：使用桌面截图和渐变背景',
     data: {
@@ -173,7 +182,7 @@ export const Examples = [
   {
     id: '6',
     name: '数学课学习笔记 2025年6月20日',
-    preview: 'https://p.weizwz.com/cover/thiscover_example_6_92b78a7283d015eb.webp',
+    preview: ex6.src,
     ratio: '1',
     mark: '现代主题：使用纹理和彩色图标',
     data: {
@@ -205,7 +214,7 @@ export const Examples = [
   {
     id: '7',
     name: '前端常用图标资源汇总 note.weizwz.com',
-    preview: 'https://p.weizwz.com/cover/thiscover_example_7_fdbfc2f7903cbd18.webp',
+    preview: ex7.src,
     ratio: '3/2',
     mark: '经典主题：使用渐变背景和彩色图标',
     data: {
@@ -237,7 +246,7 @@ export const Examples = [
   {
     id: '8',
     name: 'OPPO主题图标设计',
-    preview: 'https://p.weizwz.com/cover/thiscover_example_8_db9eec43bc97cbd4.webp',
+    preview: ex8.src,
     ratio: '1',
     mark: '手机主题：使用在线图片和手机截图',
     data: {

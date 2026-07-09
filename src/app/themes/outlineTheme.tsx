@@ -8,7 +8,7 @@ import { getIconifyHost } from '../config/unsplash'
 const iconifyHost = getIconifyHost()
 
 const OutlineTheme: React.FC<ThemeProps> = ({ config }) => {
-  const { title, pattern, author, icon, font, customIcon } = config
+  const { title, pattern, author, icon, font, customIcon, titleColor, titleSize, titleWrap, authorColor, authorSize } = config
   const { coverSetting } = useContext(CoverContext)
 
   const backgroundStyle = getBackgroundStyle(coverSetting.bg)
@@ -22,8 +22,16 @@ const OutlineTheme: React.FC<ThemeProps> = ({ config }) => {
           <img className='w-18 h-18' src={customIcon || `${iconifyHost}/${icon.value}.svg?color=%23fff`} alt={`${icon.label} icon`} />
         </div>
         <div className={`${font.value} flex flex-col gap-6`}>
-          <div className={`text-5xl ${font?.lineHeight || 'leading-14'} font-bold text-shadow-lg text-shadow-black`}>{title}</div>
-          <div className={`text-2xl font-semibold text-shadow-sm text-shadow-black ${author.trim() === '' && 'hidden'}`}>{author}</div>
+          <div
+            className={`${font?.lineHeight || 'leading-14'} font-bold text-shadow-lg text-shadow-black`}
+            style={{ fontSize: (titleSize ?? 48) + 'px', color: titleColor || undefined, whiteSpace: (titleWrap ?? true) ? 'pre-wrap' : 'nowrap', wordBreak: 'break-word' }}>
+            {title}
+          </div>
+          <div
+            className={`font-semibold text-shadow-sm text-shadow-black ${author.trim() === '' && 'hidden'}`}
+            style={{ fontSize: (authorSize ?? 24) + 'px', color: authorColor || undefined }}>
+            {author}
+          </div>
         </div>
       </div>
     </div>

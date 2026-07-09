@@ -23,5 +23,10 @@ export const DEFAULT_SETTING: Setting = {
   font: FONTS[0],
   bg: { ...BACKGROUNDS_RANDOM[0] },
   pattern: PATTERNS[0],
-  size: SIZES[0]
+  size: SIZES[0],
+  titleColor: '',
+  titleSize: 48,
+  titleWrap: true,
+  authorColor: '',
+  authorSize: 24
 }

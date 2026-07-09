@@ -63,4 +63,11 @@ interface Setting {
   bg: Background
   pattern: Pattern
   size: Size
+  // 标题样式
+  titleColor: string
+  titleSize: number
+  titleWrap: boolean
+  // 作者样式
+  authorColor: string
+  authorSize: number
 }

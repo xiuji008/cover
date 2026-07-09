@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Slider } from '@/components/ui/slider'
+import { Switch } from '@/components/ui/switch'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import { HelpCircle, RotateCcw, Save } from 'lucide-react'
 
@@ -19,6 +20,7 @@ import { imgToBase64 } from '../tools/utils'
 import CenteredAlert from './common/centeredAlert'
 import IconSelect from './iconSelect'
 import BackgroundSelect from './backgroundSelect'
+import ColorPicker from './common/colorPicker'
 
 const EditorSetting = () => {
   const { coverSetting, setCoverSetting } = useContext(CoverContext)
@@ -166,6 +168,37 @@ const EditorSetting = () => {
               onChange={(e) => setCoverSetting({ ...coverSetting, title: e.target.value })}
             />
           </div>
+          <div className='flex w-full'>
+            <Label className='w-16 justify-end mr-2 pt-1'>标题样式</Label>
+            <div className='flex-1 flex flex-col gap-3 py-1'>
+              <ColorPicker
+                color={coverSetting.titleColor}
+                onChange={(value) => setCoverSetting({ ...coverSetting, titleColor: value })}
+              />
+              <div className='flex items-center gap-2'>
+                <span className='text-sm text-gray-600 w-10 shrink-0'>字号</span>
+                <Slider
+                  className='flex-1'
+                  value={[coverSetting.titleSize]}
+                  min={16}
+                  max={96}
+                  step={1}
+                  onValueChange={(newValue) => setCoverSetting({ ...coverSetting, titleSize: newValue[0] })}
+                />
+                <span className='text-sm w-10 text-right'>{coverSetting.titleSize}px</span>
+              </div>
+              <div className='flex items-center gap-2'>
+                <Switch
+                  id='titleWrap'
+                  checked={coverSetting.titleWrap}
+                  onCheckedChange={(checked) => setCoverSetting({ ...coverSetting, titleWrap: checked })}
+                />
+                <Label htmlFor='titleWrap' className='cursor-pointer'>
+                  允许换行（支持手动回车）
+                </Label>
+              </div>
+            </div>
+          </div>
           <div className='flex w-full md:w-1/2 xl:w-full'>
             <Label htmlFor='author' className='w-16 justify-end mr-2'>
               作者
@@ -177,6 +210,27 @@ const EditorSetting = () => {
               value={coverSetting.author}
               onChange={(e) => setCoverSetting({ ...coverSetting, author: e.target.value })}
             />
+          </div>
+          <div className='flex w-full md:w-1/2 xl:w-full'>
+            <Label className='w-16 justify-end mr-2 pt-1'>作者样式</Label>
+            <div className='flex-1 flex flex-col gap-3 py-1'>
+              <ColorPicker
+                color={coverSetting.authorColor}
+                onChange={(value) => setCoverSetting({ ...coverSetting, authorColor: value })}
+              />
+              <div className='flex items-center gap-2'>
+                <span className='text-sm text-gray-600 w-10 shrink-0'>字号</span>
+                <Slider
+                  className='flex-1'
+                  value={[coverSetting.authorSize]}
+                  min={12}
+                  max={48}
+                  step={1}
+                  onValueChange={(newValue) => setCoverSetting({ ...coverSetting, authorSize: newValue[0] })}
+                />
+                <span className='text-sm w-10 text-right'>{coverSetting.authorSize}px</span>
+              </div>
+            </div>
           </div>
           <div className='flex w-full md:w-1/2 xl:w-full'>
             <Label className='w-16 justify-end mr-2'>图标</Label>
